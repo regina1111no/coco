@@ -1,0 +1,21 @@
+
+h1
+{
+font-size: 23px;
+width: 100%;
+margin: 0px;
+}
+
+#etiqueta
+{
+font-size: 18px;
+}
+body
+{
+    background: url("background.jpg");
+    background-size: cover;
+}
+canvas{
+    box-shadow: 5px 5px 5px black;
+    border-radius: 20px;
+}
