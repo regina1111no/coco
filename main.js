@@ -3,7 +3,7 @@ objects=[];
 status="";
 
 function preload(){
-  img = loadImage('dog_cat.jpg');
+  img = loadImage('https://th.bing.com/th/id/OIP.QxO6h7JSyLLns6iFPIMCqgHaHa?rs=1&pid=ImgDetMain');
 }
 function setup(){
     canvas=createCanvas(700,550);
@@ -25,14 +25,20 @@ function gotResult(error, results){
 }
 function draw(){
         image(img, 0, 0, 700, 600);
-        fill("#FF0000");
-        text("perro", 45, 75);
-        noFill();
-        stroke("#FF0000");
-        rect(30, 60, 450, 350 );
-        fill("#FF0000");
-        text("gato🐈‍⬛", 345, 185);
-        noFill();
-        stroke("#FF0000");
-        rect(320, 100, 360, 450 );
+        if(status != "")
+      {
+        for(i=0; i<objects.length; i++)
+        {
+            document.getElementById("etiqueta").innerHTML="objetos detectados";
+        
+
+            fill("#FF0000");
+            percent = floor(objects[i].confidence * 100);
+            text(objects[i].label + " " + percent + "%", objects[i].x + 15, objects[i].y + 15);
+            noFill();
+            stroke("#FF0000");
+            rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);        
+        }
+     }
+
 }
